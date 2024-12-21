@@ -57,18 +57,8 @@ Authorize Wandb [here](https://wandb.ai/authorize).
 All training flags are in `configs/base.yaml`. Below is explanation-by-example of the main flags to change. Note you can combine multiple flags in the command.
 
 ```bash
-# Train on PDB or SCOPE
-python -W ignore experiments/train_se3_flows.py data.dataset=pdb
+# Train on SCOPE
 python -W ignore experiments/train_se3_flows.py data.dataset=scope
 
-# Train on hallucination or inpainting (motif-scaffolding)
+# Train on hallucination
 python -W ignore experiments/train_se3_flows.py data.task=hallucination
-python -W ignore experiments/train_se3_flows.py data.inpainting=inpainting
-
-# Train with larger batches. Depends on GPU memory.
-python -W ignore experiments/train_se3_flows.py data.sampler.max_num_res_squared=600_000
-
-# Train with more GPUs
-python -W ignore experiments/train_se3_flows.py experiment.num_devices=4
-```
-
